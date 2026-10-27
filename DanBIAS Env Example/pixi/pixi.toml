@@ -1,0 +1,17 @@
+[workspace]
+authors = ["Jeppe Klitgaard <hi@jeppe.science>"]
+channels = ["conda-forge"]
+name = "pixi"
+# In pixi the platforms are generally set, so I would go with all 3 major platforms
+# unless something specific is required, like CUDA.
+# See also comment in the uv example
+platforms = ["win-64", "linux-64", "osx-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.14.*"
+
+[pypi-dependencies]
+qim3d = ">=1.6.0, <2"

@@ -1,0 +1,21 @@
+[project]
+name = "analysis"
+version = "0.1.0"
+readme = "README.md"
+authors = [
+    { name = "Jeppe Klitgaard", email = "hi@jeppe.science" }
+]
+requires-python = "==3.14.*"
+dependencies = [
+    "qim3d>=1.6.0",
+]
+
+# Not present since people should set this according to their own needs
+# Generally I would omit this unless all the analysis is done on, say, a Linux server
+# and some very platform-sensitive libraries are used
+# [tool.uv]
+# environments = ["sys_platform=='win32'"]
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
