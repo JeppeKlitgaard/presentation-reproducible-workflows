@@ -22,7 +22,7 @@
 
 #let title = "Modern Tools for Reproducible Workflows in Python"
 #set document(
-  date: datetime(year: 2026, month: 10, day: 28),
+  date: datetime(year: 2026, month: 11, day: 17),
   author: "Jeppe Klitgaard",
   title: title,
 )
@@ -80,13 +80,13 @@
   #title
 
   #set text(size: 24pt, weight: "regular")
-  Qim + DanBIAS Hackathon,\
+  Tuesday Meeting\
   #context document.date.display()
   #v(3cm)
   Jeppe Klitgaard\
   #[
     #set text(size: 0.7em)
-    #link("mailto:s250250@dtu.dk")
+    #link("mailto:jepkl@dtu.dk")
   ]
 ]
 
@@ -549,6 +549,8 @@ _Slide heavily inspired by presentation by Niels Skovgaard Jensen, PhD at DTU Co
 
 #pagebreak(weak: true)
 #speaker-note[
+  This is a Directed Graph (DG), but not Acyclic (DAG)!
+
   Okay if it looks like this at some point, just not at the end!
 ]
 #align(center, analysis-dg(
@@ -571,8 +573,8 @@ _Slide heavily inspired by presentation by Niels Skovgaard Jensen, PhD at DTU Co
 _Slide heavily inspired by presentation by Niels Skovgaard Jensen, PhD at DTU Compute_
 ]
 
-
 == Other Tools for Reproducibility
+#skip[
 - Some sort of version control (VCS), usually `git` + `Git{Hub,Lab}` is a must
   - #link("https://git-lfs.com/", [Git LFS]) for binary files in VCS
 
@@ -586,6 +588,7 @@ _Slide heavily inspired by presentation by Niels Skovgaard Jensen, PhD at DTU Co
   - Sensible starting point could be #link("https://github.com/JeppeKlitgaard/ezhpcy/blob/master/.pre-commit-config.yaml", [this])
 
 - #link("https://typst.app/", [Typst]) or Markdown to easily make documents and slides accompanying code
+]
 
 == Miscallenous Tips and Tricks
 #speaker-note[
@@ -613,7 +616,7 @@ _An attempt at following some of these ideas can be found #link("https://github.
 #speaker-note[
   Consider skipping
 ]
-// #skip[
+#skip[
 How I was taught experimental science:
 - Contemporaneously record details in log book
 - Tersely record details required to reproduce experiment
@@ -625,7 +628,7 @@ How I was taught experimental science:
   + Marks deducted for any missing detail, _no exceptions!_
 
 Somewhat brutal, but important: _"academic rigour"_
-// ]
+]
 #pagebreak(weak: true)
 
 We should hold computational analysis to the same standard!
@@ -676,6 +679,10 @@ Chemistry would not accept:
 - Computational analysis is an *experiemental science*
   - Adopt *strict experimental protocol*!
 
+- Don't have a single shared environment for multiple projects
+  - Often the case for `conda` users
+  - If you change the environment, you may break other projects!
+
 #pause
 - Mnemonic reminder: _Baby got back_ by Sir Mix-a-Lot
   - _"I like big *locks* and I cannot lie"_
@@ -703,29 +710,32 @@ After this presentation you will:
 #set align(center)
 #set text(size: 40pt)
 
+#v(1fr)
 *Did it work?*
+#v(1fr)
 
-#pause
-#set text(size: 24pt)
-Let me know using the main document!
+// #pause
+// #set text(size: 24pt)
+// Let me know using the main document!
 ]
 
 == Questions?
-#alternatives[
 
-][
-Jeppe from the past:
-- I went over, so we don't have time for them anyway
-][
-Softball questions for myself:
-+ Most people use `conda`, so why should I switch?
-  - Most people do not use `conda`, maybe in some very small bubbles this is the case
-  - PyTorch dropped 1st party `conda` support more than 2 years ago due to low usage (3.7% compared to PyPI)
+// #alternatives[
 
-+ This seems like an awful lot of work, why bother?
-  - Surprisingly not that much work
-  - Think of the time you save by never being in a weirdly broken environment!
-]
+// ][
+// Jeppe from the past:
+// - I went over, so we don't have time for them anyway
+// ][
+// Softball questions for myself:
+// + Most people use `conda`, so why should I switch?
+//   - Most people do not use `conda`, maybe in some very small bubbles this is the case
+//   - PyTorch dropped 1st party `conda` support more than 2 years ago due to low usage (3.7% compared to PyPI)
+
+// + This seems like an awful lot of work, why bother?
+//   - Surprisingly not that much work
+//   - Think of the time you save by never being in a weirdly broken environment!
+// ]
 
 #slides.progress-marker-upper
 
@@ -746,18 +756,29 @@ Softball questions for myself:
 The source code for these slides are available at:
 - #link("https://github.com/JeppeKlitgaard/presentation-reproducible-workflows", [`github.com/JeppeKlitgaard/presentation-reproducible-workflows`])
 
-== Next: Set up environment for today
-#speaker-note[
-I usually start in `uv` unless I know I have to use Conda ecosystem
-- Have only one tool I use that only supports Conda
-- Won't mention names, as that would be CILly a thing to do for my career prospects.
-]
-#import "installation_guide.typ"
-#set text(size: 0.75em)
-#cols(columns: (1fr, 1fr), gutter: 2cm)[
-#installation_guide.uv
+// ==
+// #speaker-note[
+// Felipe does this bit
+// ]
 
-#installation_guide.script_file
-][
-#installation_guide.pixi
-]
+// #[
+//   #set align(center + horizon)
+//   #set text(size: 32pt)
+//   Quick introduction to `qim3d`\ and motivation for tooling
+// ]
+
+// == Next: Set up environment for today
+// #speaker-note[
+// I usually start in `uv` unless I know I have to use Conda ecosystem
+// - Have only one tool I use that only supports Conda
+// - Won't mention names, as that would be CILly a thing to do for my career prospects.
+// ]
+// #import "installation_guide.typ"
+// #set text(size: 0.75em)
+// #cols(columns: (1fr, 1fr), gutter: 2cm)[
+// #installation_guide.uv
+
+// #installation_guide.script_file
+// ][
+// #installation_guide.pixi
+// ]
